@@ -15,7 +15,7 @@ namespace SQLiteDemo.MVVM.Models
     public class Customer
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int ID { get; set; }
         [SqlColumn("name"), Indexed, NotNull]
 
         public string Name { get; set; }
