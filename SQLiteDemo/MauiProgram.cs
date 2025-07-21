@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SQLiteDemo.MVVM.Models;
 using SQLiteDemo.MVVM.Views;
 using SQLiteDemo.Repositories;
 
@@ -28,6 +29,10 @@ namespace SQLiteDemo
             builder.Services.AddSingleton(repo);
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<AppShell>();
+            builder.Services.AddSingleton<BaseRepository<Customer>>();
+            builder.Services.AddSingleton<BaseRepository<Order>>();
+
+
 
             SQLitePCL.Batteries_V2.Init();
 

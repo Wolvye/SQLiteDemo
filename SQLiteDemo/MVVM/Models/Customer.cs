@@ -7,21 +7,21 @@ using System.Text;
 using System.Threading.Tasks;
 using SqlTable = SQLite.TableAttribute;
 using SqlColumn = SQLite.ColumnAttribute;
+using SQLiteDemo.Abstractions;
 
 
 namespace SQLiteDemo.MVVM.Models
 {
     [SqlTable("Customers")]
-    public class Customer
+    public class Customer : TableData
     {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+
         [SqlColumn("name"), Indexed, NotNull]
 
         public string Name { get; set; }
         [Unique]
         public string Phone { get; set; }
-        
+
         public int Age { get; set; }
         [MaxLength(100)]
         public string Address { get; set; }
