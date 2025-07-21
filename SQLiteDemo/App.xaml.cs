@@ -5,7 +5,7 @@ namespace SQLiteDemo
 {
     public partial class App : Application
     {
-        public static CustomerRepository CustomerRepo { get; private set; }
+        public static CustomerRepository CustomerRepo { get;  set; }
 
         public App(CustomerRepository repo, MainPage mainPage)
         {

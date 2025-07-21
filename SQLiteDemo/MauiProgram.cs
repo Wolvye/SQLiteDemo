@@ -9,6 +9,10 @@ namespace SQLiteDemo
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
+            var repo = new CustomerRepository();
+            App.CustomerRepo = repo;
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -18,9 +22,10 @@ namespace SQLiteDemo
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
-            builder.Services.AddSingleton<CustomerRepository>();
+
+            builder.Services.AddSingleton(repo);
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<AppShell>();
 
