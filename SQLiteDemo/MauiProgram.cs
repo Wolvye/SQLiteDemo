@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using SQLiteDemo.MVVM.Views;
+using SQLiteDemo.Repositories;
 
 namespace SQLiteDemo
 {
@@ -18,6 +20,11 @@ namespace SQLiteDemo
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<CustomerRepository>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<AppShell>();
+
+            SQLitePCL.Batteries_V2.Init();
 
             return builder.Build();
         }
