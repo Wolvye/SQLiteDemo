@@ -13,6 +13,8 @@ namespace SQLiteDemo
 
             var repo = new CustomerRepository();
             App.CustomerRepo = repo;
+            App.OrdersRepo = new BaseRepository<Order>();
+
 
             builder
                 .UseMauiApp<App>()

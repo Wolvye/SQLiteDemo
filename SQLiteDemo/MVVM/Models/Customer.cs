@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using SqlTable = SQLite.TableAttribute;
 using SqlColumn = SQLite.ColumnAttribute;
 using SQLiteDemo.Abstractions;
+using SQLiteNetExtensions.Attributes;
+using ForeignKeyAttribute = SQLiteNetExtensions.Attributes.ForeignKeyAttribute;
 
 
 namespace SQLiteDemo.MVVM.Models
@@ -29,5 +31,10 @@ namespace SQLiteDemo.MVVM.Models
 
         public bool IsYoung =>
             Age > 50 ? true : false;
+
+        [ForeignKey(typeof(Passport))]
+        public int PassportId {  get; set; }
+        [OneToOne]
+        public Passport Passport { get; set; }
     }
 }
